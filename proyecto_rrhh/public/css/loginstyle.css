@@ -1,0 +1,330 @@
+/* CSS usado en las páginas de autenticación */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'); 
+:root {
+  --color-general: linear-gradient(45deg, #8360c3, #2ebf91);
+  --color-principal: #9b59b6;
+  --color-secundario: #71b7e6;
+  --fondo-pagina: linear-gradient(rgba(131, 96, 195, 0.5), rgba(46, 191, 145, 0.5));
+  --fondo-formulario: #fff;
+  --color-texto: #333;
+  --color-error: #e74c3c;
+  --color-success: #4CAF50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-image: var(--fondo-pagina), url("../media/img/auth-fondo.jpg");
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: var(--fondo-formulario);
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  transform: scale(1.05);
+}
+
+#precarga {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--fondo-pagina), url("../media/img/auth-fondo.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.carga {
+  font-size: 24px;
+  color: var(--fondo-formulario);
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.titulo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: var(--color-general);
+}
+
+.auth-link {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-principal);
+}
+
+.auth-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.content form .detalles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+form .detalles .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+.input-box {
+  position: relative;
+}
+
+.detalles .input-box input {
+  height: 45px; /* alto */
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 40px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.2s ease;
+}
+
+.detalles .input-box select {
+  height: 45px;
+  width: 100%;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 40px; 
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23666666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1.2em;
+}
+
+.detalles .input-box select:focus,
+.detalles .input-box select:valid {
+  border-color: var(--color-principal);
+}
+
+.detalles .input-box select:hover {
+  border-color: var(--color-secundario);
+}
+
+.detalles .input-box select option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.detalles .input-box select option[value=""] {
+  color: #666;
+}
+
+#cambiarVisibilidad {
+  position: absolute;
+  top: 65%;
+  right: 10px;
+  transform: translateY(-50%); 
+  cursor: pointer;
+  z-index: 1;
+}
+
+.detalles .input-box input:focus,
+.detalles .input-box input:valid {
+  border-color: var(--color-principal);
+}
+
+.button {
+  height: 45px;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.button button {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--color-general);
+}
+
+.button button:hover {
+  background: linear-gradient(-135deg, var(--color-secundario), var(--color-principal));
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button button:active {
+  animation: pulse 0.3s ease-in-out;
+}
+
+.requisitos-clave {
+  margin-bottom: 5px;
+}
+
+.requisitos-clave p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.requisitos-clave i.fa-check {
+  color: var(--color-success);
+}
+
+.requisitos-clave i.fa-times {
+  color: var(--color-error);
+}
+
+.sublink {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.sublink a {
+  color: var(--color-principal);
+  text-decoration: none;
+}
+
+.sublink a:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-link {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.forgot-password-link a {
+  color: var(--color-principal);
+  text-decoration: none;
+}
+
+.forgot-password-link a:hover {
+  text-decoration: underline;
+}
+
+.error, .message {
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: var(--color-error);
+  background-color: #fadbd8;
+}
+
+.message {
+  color: var(--color-success);
+  background-color: #d5f5e3;
+}
+
+.success-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.success-message i {
+  color: var(--color-success);
+  margin-bottom: 20px;
+}
+
+.error-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.error-message i {
+  color: var(--color-error);
+  margin-bottom: 20px;
+}
+
+@media(max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  form .detalles .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .puestos {
+    width: 100%;
+  }
+  .content form .detalles {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .detalles::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+@media(max-width: 459px) {
+  .container .content .puestos {
+    flex-direction: column;
+  }
+}
