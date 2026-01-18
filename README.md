@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Logo](https://i.imgur.com/Yp9HcPp.png)
 
 ### Grupo 3 - Aguirre Agustina, Graff Francisco, Lucas Natacha, Martinez Mariano.
@@ -617,3 +618,7 @@ https://es.stackoverflow.com/questions/389517/cargar-datatable-con-ajax
 Para la realización del readme:
 * https://pandao.github.io/editor.md 
 * Letra del título: https://www.dafont.com/es/gelato.font
+=======
+# PROYECTOS
+# TESIS-PRACTICAS-PROFESIONALIZANTES.
+>>>>>>> 220e5bdf6bcafcd17a9bb65a34fe50c411927e36
